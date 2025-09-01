@@ -194,7 +194,7 @@ export default function NoLimitTradesVSL() {
               Get Full Access Today for <span className="text-[#9B8AFB]">$29</span>
             </h3>
             <p className="mt-3 max-w-xl text-white/80">
-              Then $89/mo after. Try it risk-free for 7 days. Cancel anytime. (No profits guaranteed.)
+              Price never changes. Try it risk-free for 7 days. Cancel anytime.
             </p>
             <ul className="mt-6 space-y-2 text-white/80">
               <li className="flex items-start gap-2">
