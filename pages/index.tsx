@@ -325,15 +325,7 @@ export default function NoLimitTradesVSL() {
                       Loading secure checkout…
                     </div>
                   )}
-                  <div className="mt-6 text-center">
-                    <Button
-                      onClick={() => (window.location.href = CHECKOUT_URL)}
-                      variant="secondary"
-                      className="px-6 py-3"
-                    >
-                      Go to Secure Checkout (fallback)
-                    </Button>
-                  </div>
+          
                 </div>
               )}
             </div>
