@@ -223,7 +223,7 @@ export default function IndexPage() {
               </button>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-white/60">
-              <div>🛡 7-Day Refund • Cancel Anytime</div>
+              <div>🛡 7-Day Guarantee • Cancel Anytime</div>
               <div>👥 300+ Members Inside</div>
             </div>
           </div>
