@@ -41,7 +41,7 @@ export default function NoLimitTradesVSL() {
   const [showCheckout, setShowCheckout] = useState(false);
   const [lpLoaded, setLpLoaded] = useState(false);
 
-  // countdown per visitor
+  // per-visitor rolling countdown
   useEffect(() => {
     const key = "nlt_vsl_deadline";
     const saved = typeof window !== "undefined" ? localStorage.getItem(key) : null;
@@ -65,7 +65,7 @@ export default function NoLimitTradesVSL() {
     return () => clearInterval(int);
   }, [deadline]);
 
-  // load LaunchPass script when needed
+  // load LaunchPass script when checkout opens
   useEffect(() => {
     if (!showCheckout) return;
     const id = "lp-embed-script";
@@ -82,6 +82,7 @@ export default function NoLimitTradesVSL() {
     document.body.appendChild(s);
   }, [showCheckout]);
 
+  // value stack features
   const features = useMemo(
     () => [
       { title: "Daily Trade Setups", desc: "See exactly what I'm watching each morning and why.", icon: CheckCircle2 },
@@ -92,51 +93,35 @@ export default function NoLimitTradesVSL() {
     ],
     []
   );
-// --- Live "Recent Plays" ticker config ---
-const ROTATE_MS = 5000;
 
-type RecentPlay = { headline: string; details: string };
+  // --- Live "Recent Plays" ticker ---
+  const ROTATE_MS = 5000;
+  type RecentPlay = { headline: string; details: string };
 
-const recentPlays = useMemo<RecentPlay[]>(
-  () => [
-    {
-      headline: "ETH scalp +$842",
-      details: "Posted entry, stop, TP before the move. (9:42 AM ET)",
-    },
-    {
-      headline: "BTC range break +2.1R",
-      details: "Clean breakout + retest, called in Premium with risk mapped.",
-    },
-    {
-      headline: "SOL momentum +$316",
-      details: "Momentum continuation during NY open; partials taken live.",
-    },
-    {
-      headline: "OP fade +1.6R",
-      details: "Mean reversion after sweep; shared invalidation upfront.",
-    },
-  ],
-  []
-);
+  const recentPlays = useMemo<RecentPlay[]>(
+    () => [
+      { headline: "ETH scalp +$842", details: "Posted entry, stop, TP before the move. (9:42 AM ET)" },
+      { headline: "BTC range break +2.1R", details: "Clean breakout + retest, called in Premium with risk mapped." },
+      { headline: "SOL momentum +$316", details: "Momentum continuation during NY open; partials taken live." },
+      { headline: "OP fade +1.6R", details: "Mean reversion after sweep; shared invalidation upfront." },
+    ],
+    []
+  );
 
-const [playIdx, setPlayIdx] = useState(0);
-const [paused, setPaused] = useState(false);
+  const [playIdx, setPlayIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
 
-useEffect(() => {
-  if (recentPlays.length <= 1) return;
+  useEffect(() => {
+    if (recentPlays.length <= 1) return;
+    const id = setInterval(() => {
+      if (!paused) setPlayIdx((i) => (i + 1) % recentPlays.length);
+    }, ROTATE_MS);
+    return () => clearInterval(id);
+  }, [recentPlays.length, paused]);
 
-  const id = setInterval(() => {
-    if (!paused) {
-      setPlayIdx((i) => (i + 1) % recentPlays.length);
-    }
-  }, ROTATE_MS);
-
-  return () => clearInterval(id);
-}, [recentPlays.length, paused]);
 
 // -------------------- JSX --------------------
 return (
-  <div className="min-h-screen bg-black text-white">
 
     <div className="min-h-screen bg-black text-white">
       {/* Sticky Top Bar */}
