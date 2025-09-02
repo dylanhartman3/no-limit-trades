@@ -361,7 +361,7 @@ export default function IndexPage() {
             <h3 className="text-2xl font-extrabold sm:text-3xl">
               Get Full Access Today for <span className="text-[#9B8AFB]">$29</span>
             </h3>
-            <p className="mt-3 max-w-xl text-white/80">Then $89/mo after. Try it risk-free for 7 days. Cancel anytime.</p>
+            <p className="mt-3 max-w-xl text-white/80">Price never changes. Try it risk-free for 7 days. Cancel anytime.</p>
             <ul className="mt-6 space-y-2 text-white/80">
               <li>✓ Daily setups + live breakdowns</li>
               <li>✓ Beginner’s Crash Course ($199 value)</li>
