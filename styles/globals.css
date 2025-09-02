@@ -3,3 +3,8 @@
 @tailwind utilities;
 
 html, body, #__next { height: 100%; }
+
+@keyframes nlt-progress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
