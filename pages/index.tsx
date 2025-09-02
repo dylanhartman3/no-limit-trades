@@ -76,7 +76,7 @@ export default function IndexPage() {
   );
 
   // ======= Recent Plays ticker =======
-  const ROTATE_MS = 5000;
+  const ROTATE_MS = 10000;
   type Play = { h: string; d: string };
   const recentPlays = useMemo<Play[]>(
     () => [
