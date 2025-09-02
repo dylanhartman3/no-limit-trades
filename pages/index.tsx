@@ -122,7 +122,6 @@ export default function NoLimitTradesVSL() {
 
 // -------------------- JSX --------------------
 return (
-
     <div className="min-h-screen bg-black text-white">
       {/* Sticky Top Bar */}
       <div className="sticky top-0 z-40 border-b border-white/10 bg-black/70 backdrop-blur">
