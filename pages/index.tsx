@@ -133,6 +133,7 @@ useEffect(() => {
   return () => clearInterval(id);
 }, [recentPlays.length, paused]);
 
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Sticky Top Bar */}
