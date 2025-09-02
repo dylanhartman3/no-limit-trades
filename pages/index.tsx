@@ -92,6 +92,46 @@ export default function NoLimitTradesVSL() {
     ],
     []
   );
+// --- Live "Recent Plays" ticker config ---
+const ROTATE_MS = 5000;
+
+type RecentPlay = {
+  headline: string;
+  details: string;
+};
+
+const recentPlays: RecentPlay[] = useMemo(
+  () => [
+    {
+      headline: "ETH scalp +$842",
+      details: "Posted entry, stop, TP before the move. (9:42 AM ET)",
+    },
+    {
+      headline: "BTC range break +2.1R",
+      details: "Clean breakout + retest, called in Premium with risk mapped.",
+    },
+    {
+      headline: "SOL momentum +$316",
+      details: "Momentum continuation during NY open; partials taken live.",
+    },
+    {
+      headline: "OP fade +1.6R",
+      details: "Mean reversion after sweep; shared invalidation upfront.",
+    },
+  ],
+  []
+);
+
+const [playIdx, setPlayIdx] = useState(0);
+const [paused, setPaused] = useState(false);
+
+useEffect(() => {
+  if (recentPlays.length <= 1) return;
+  const id = setInterval(() => {
+    if (!paused) setPlayIdx((i) => (i + 1) % recentPlays.length);
+  }, ROTATE_MS);
+  return () => clearInterval(id);
+}, [recentPlays.length, paused]);
 
   return (
     <div className="min-h-screen bg-black text-white">
