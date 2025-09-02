@@ -191,9 +191,47 @@ useEffect(() => {
           <div className="relative">
             <div className="pointer-events-none absolute -inset-8 -z-10 rounded-3xl bg-gradient-to-b from-[#6C2BD9]/10 to-transparent blur-2xl" />
             <div className="grid gap-4">
-              <Card className="rounded-2xl border-white/10 bg-white/5">
-                <CardHeader><CardTitle className="text-sm text-white/70">Recent Win</CardTitle></CardHeader>
-                <CardContent className="text-white/90">ETH scalp +$842 — posted before the move.</CardContent>
+             // --- Live "Recent Plays" ticker config ---
+const ROTATE_MS = 5000;
+
+type RecentPlay = {
+  headline: string;
+  details: string;
+};
+
+const recentPlays: RecentPlay[] = useMemo(
+  () => [
+    {
+      headline: "ETH scalp +$842",
+      details: "Posted entry, stop, TP before the move. (9:42 AM ET)",
+    },
+    {
+      headline: "BTC range break +2.1R",
+      details: "Clean breakout + retest, called in Premium with risk mapped.",
+    },
+    {
+      headline: "SOL momentum +$316",
+      details: "Momentum continuation during NY open; partials taken live.",
+    },
+    {
+      headline: "OP fade +1.6R",
+      details: "Mean reversion after sweep; shared invalidation upfront.",
+    },
+  ],
+  []
+);
+
+const [playIdx, setPlayIdx] = useState(0);
+const [paused, setPaused] = useState(false);
+
+useEffect(() => {
+  if (recentPlays.length <= 1) return;
+  const id = setInterval(() => {
+    if (!paused) setPlayIdx((i) => (i + 1) % recentPlays.length);
+  }, ROTATE_MS);
+  return () => clearInterval(id);
+}, [recentPlays.length, paused]);
+
               </Card>
               <Card className="rounded-2xl border-white/10 bg-white/5">
                 <CardHeader><CardTitle className="text-sm text-white/70">Member Shoutout</CardTitle></CardHeader>
