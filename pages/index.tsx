@@ -307,7 +307,7 @@ export default function IndexPage() {
             <div className="rounded-xl border border-white/10 bg-black/40 p-4">
               <div className="text-sm text-white/70">Today Only</div>
               <div className="text-3xl font-extrabold text-[#E5DEFF]">$29</div>
-              <div className="text-xs text-white/60">Then $89/mo. 7-day refund.</div>
+              <div className="text-xs text-white/60">Price never changes. 7-day guarantee.</div>
             </div>
             <div className="flex items-center justify-center">
               <button
