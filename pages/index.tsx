@@ -95,12 +95,9 @@ export default function NoLimitTradesVSL() {
 // --- Live "Recent Plays" ticker config ---
 const ROTATE_MS = 5000;
 
-type RecentPlay = {
-  headline: string;
-  details: string;
-};
+type RecentPlay = { headline: string; details: string };
 
-const recentPlays: RecentPlay[] = useMemo(
+const recentPlays = useMemo<RecentPlay[]>(
   () => [
     {
       headline: "ETH scalp +$842",
@@ -127,14 +124,20 @@ const [paused, setPaused] = useState(false);
 
 useEffect(() => {
   if (recentPlays.length <= 1) return;
+
   const id = setInterval(() => {
-    if (!paused) setPlayIdx((i) => (i + 1) % recentPlays.length);
+    if (!paused) {
+      setPlayIdx((i) => (i + 1) % recentPlays.length);
+    }
   }, ROTATE_MS);
+
   return () => clearInterval(id);
 }, [recentPlays.length, paused]);
 
+// -------------------- JSX --------------------
+return (
+  <div className="min-h-screen bg-black text-white">
 
-  return (
     <div className="min-h-screen bg-black text-white">
       {/* Sticky Top Bar */}
       <div className="sticky top-0 z-40 border-b border-white/10 bg-black/70 backdrop-blur">
