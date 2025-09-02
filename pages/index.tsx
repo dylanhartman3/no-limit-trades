@@ -120,12 +120,12 @@ export default function NoLimitTradesVSL() {
   }, [recentPlays.length, paused]);
 
 
-// -------------------- JSX --------------------
+// ---------------- JSX ----------------
 return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Sticky Top Bar */}
-      <div className="sticky top-0 z-40 border-b border-white/10 bg-black/70 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+  <div className="min-h-screen bg-black text-white">
+    {/* Sticky Top Bar */}
+    <div className="sticky top-0 z-40 border-b border-white/10 bg-black/70 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
             <div className="h-7 w-7 rounded-full" style={{ background: "#6C2BD9" }} />
             <span className="text-sm font-semibold tracking-wide">No Limit Trades</span>
