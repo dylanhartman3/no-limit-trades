@@ -455,7 +455,7 @@ export default function IndexPage() {
             <div className="aspect-video w-full">
               <iframe
                 className="h-full w-full"
-                <iframe src="https://player.vimeo.com/video/1115330140?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="400" height="300" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="copy_ECCDA8F9-00D0-421A-8EA3-09E13581B075"></iframe>
+                src="https://player.vimeo.com/video/1115330140?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="400" height="300" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="copy_ECCDA8F9-00D0-421A-8EA3-09E13581B075"></iframe>
                 title="No Limit Trades VSL"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
